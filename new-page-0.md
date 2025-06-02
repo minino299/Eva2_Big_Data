@@ -13,11 +13,11 @@ tags:
 
 Este informe presenta un enfoque metodológico para explorar y analizar registros de avistamientos de OVNIs en Estados Unidos entre 1910 y 2014, aprovechando la potencia de BigQuery para almacenamiento y consulta masiva, Dataprep para la limpieza y normalización de datos, y Looker para la visualización interactiva de resultados. El principal objetivo no es especular sobre teorías conspirativas, sino demostrar cómo un conjunto heterogéneo de registros históricos puede transformarse en información útil mediante un flujo de trabajo de análisis de datos robusto y reproducible.
 
-En primer lugar, los datos en formato CSV se cargan en un bucket de Cloud Storage
+En primer lugar, los datos en formato CSV se cargan en un bucket de Cloud Storage, para una mas facil utilizacion de estos con el resto de la suite de Google Cloud
 
 ![](https://holocron.so/uploads/d8662850-screenshot-2025-06-02-081412.png)
 
-BigQuery, donde se estructuran en tablas optimizadas para consultas de gran escala. A continuación, Dataprep se encarga de identificar y corregir inconsistencias: por ejemplo, estandarizar formatos de fecha, corregir errores tipográficos en los lugares geográficos y llenar valores nulos cuando sea posible. Esta fase garantiza que el análisis posterior no se vea afectado por problemas propios de datos recopilados durante casi un siglo y procedentes de múltiples fuentes.
+A continuacion, se crea un dataset en BigQuery llamado `'ovni'`, donde se estructuran en tablas optimizadas para consultas de gran escala. A continuación, Dataprep se encarga de identificar y corregir inconsistencias: por ejemplo, estandarizar formatos de fecha, corregir errores tipográficos en los lugares geográficos y llenar valores nulos cuando sea posible. Esta fase garantiza que el análisis posterior no se vea afectado por problemas propios de datos recopilados durante casi un siglo y procedentes de múltiples fuentes.
 
 Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
 
