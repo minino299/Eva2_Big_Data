@@ -4,4 +4,9 @@ En este repositorio se encuentran los archivos de evidencia para la evaluacion 2
 
 ## Organizacion del repositorio
 
-Este repositorio esta organizado de la siguiente manera, se tiene en la raiz de
+Este repositorio esta organizado de la siguiente manera, se tiene en la raiz del repositorio 2 carpetas y este archivo README
+
+- Archivos Evaluacion 2
+- Docs
+
+a
