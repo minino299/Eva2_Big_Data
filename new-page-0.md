@@ -35,45 +35,48 @@ Una vez nuestros datos fueron procesados y limpiados por Dataprep, se cargan en 
 
 Una vez en esta pantalla, se procede a realizar una manipulacion de datos utilizando el comando `SELECT` en SQL, especificamente con este codigo
 
- # 1.- 
- SELECT 
-  UFO_shape,
-  COUNT(*) AS Sightings
-FROM 
-  `ovni.avistamientos`
-WHERE 
-  country = 'us'
-GROUP BY 
-  UFO_shape
-ORDER BY 
-  Sightings DESC
+# 1.-
+
+SELECT
+UFO_shape,
+COUNT(\*) AS Sightings
+FROM
+`ovni.avistamientos`
+WHERE
+country = 'us'
+GROUP BY
+UFO_shape
+ORDER BY
+Sightings DESC
 LIMIT 5;
 
-
 # 2.-
-SELECT 
-  EXTRACT(YEAR FROM DATETIME(Date_time)) AS Year,
-  COUNT(*) AS Sightings
-FROM 
-  `ovni.avistamientos`
-WHERE 
-  country = 'us'
-GROUP BY 
-  Year
-ORDER BY 
-  Sightings DESC;
- # 3-
- SELECT 
-  `state_or_province` AS State,
-  COUNT(*) AS Sightings
-FROM 
-  `ovni.avistamientos`
-WHERE 
-  country = 'us'
-GROUP BY 
-  State
-ORDER BY 
-  Sightings DESC;
+
+SELECT
+EXTRACT(YEAR FROM DATETIME(Date_time)) AS Year,
+COUNT(\*) AS Sightings
+FROM
+`ovni.avistamientos`
+WHERE
+country = 'us'
+GROUP BY
+Year
+ORDER BY
+Sightings DESC;
+
+# 3-
+
+SELECT
+`state_or_province` AS State,
+COUNT(\*) AS Sightings
+FROM
+`ovni.avistamientos`
+WHERE
+country = 'us'
+GROUP BY
+State
+ORDER BY
+Sightings DESC;
 
 Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
 
