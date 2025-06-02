@@ -21,7 +21,7 @@
 title: Evaluacion 2 Aurora Roman
 email: minino299@gmail.com 
 description: >- # this means to ignore newlines until "baseurl:"
-  UFOs verdad o mito?
+  UFO's verdad o mito?
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: AstralBnuy
@@ -29,9 +29,11 @@ github_username:  minino299
 github: [metadata]
 
 # Build settings
-remote_theme: pages-themes/minimal@v0.2.0
+remote_theme: "mmistakes/minimal-mistakes@4.27.1"
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+- jekyll-remote-theme 
+- jekyll-include-cache
+# add this line to the plugins list if you already have one
 
 # Exclude from processing.
 # The following items will not be processed, by default.
