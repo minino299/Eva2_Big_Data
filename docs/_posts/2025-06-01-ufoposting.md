@@ -1,5 +1,5 @@
 ---
-title: "Post: Standard"
+title: "Analisis estadistico de UFO's en America"
 excerpt_separator: "<!--more-->"
 categories:
   - Blog
@@ -9,24 +9,84 @@ tags:
   - standard
 ---
 
-All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, "Oh, why can't you remain like this for ever!" This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end.
+# Analisis estadistico de UFO's en America
 
-Mrs. Darling first heard of Peter when she was tidying up her children's minds. It is the nightly custom of every good mother after her children are asleep to rummage in their minds and put things straight for next morning, repacking into their proper places the many articles that have wandered during the day.
+Este informe presenta un enfoque metodológico para explorar y analizar registros de avistamientos de OVNIs en Estados Unidos entre 1910 y 2014, aprovechando la potencia de BigQuery para almacenamiento y consulta masiva, Dataprep para la limpieza y normalización de datos, y Looker para la visualización interactiva de resultados. El principal objetivo no es especular sobre teorías conspirativas, sino demostrar cómo un conjunto heterogéneo de registros históricos puede transformarse en información útil mediante un flujo de trabajo de análisis de datos robusto y reproducible.
 
-<!--more-->
+### Cloud Storage
 
-This post has a manual excerpt `<!--more-->` set after the second paragraph. The following YAML Front Matter has also be applied:
+En primer lugar, los datos en formato CSV se cargan en un bucket de Cloud Storage, para una mas facil utilizacion de estos con el resto de la suite de Google Cloud
 
-```yaml
-excerpt_separator: "<!--more-->"
+![](https://holocron.so/uploads/d8662850-screenshot-2025-06-02-081412.png)
+
+### DataPrep
+
+A continuacion, se crea un dataset en BigQuery llamado `'ovni'`, que sera nuestro dataset donde guardaremos nuestros datos procesados desde DataPrep. Sin embargo para esto primero debemos procesar nuestros datos con la herramienta. El rol de Dataprep es identificar y corregir inconsistencias, en este caso se utilizo la siguiente receta en DataPrep:
+
+![](https://holocron.so/uploads/1440f3e1-screenshot-2025-06-01-230226.png)
+
+Esta fase garantiza que el análisis posterior no se vea afectado por problemas propios de datos recopilados durante casi un siglo y procedentes de múltiples fuentes.
+
+### Big Query
+
+Una vez nuestros datos fueron procesados y limpiados por Dataprep, se cargan en el dataset antes creado `'ovni'` como la tabla `'avistamientos'`
+
+![](https://holocron.so/uploads/06d44241-screenshot-2025-06-02-082620.png)
+
+Una vez en esta pantalla, se procede a realizar una manipulacion de datos utilizando el comando `SELECT` en SQL, especificamente con este codigo
+
+```SQL
+# 1.- 
+ SELECT 
+  UFO_shape,
+  COUNT(*) AS Sightings
+FROM 
+  `ovni.avistamientos`
+WHERE 
+  country = 'us'
+GROUP BY 
+  UFO_shape
+ORDER BY 
+  Sightings DESC
+LIMIT 5;
+
+
+# 2.-
+SELECT 
+  EXTRACT(YEAR FROM DATETIME(Date_time)) AS Year,
+  COUNT(*) AS Sightings
+FROM 
+  `ovni.avistamientos`
+WHERE 
+  country = 'us'
+GROUP BY 
+  Year
+ORDER BY 
+  Sightings DESC;
+ # 3-
+ SELECT 
+  `state_or_province` AS State,
+  COUNT(*) AS Sightings
+FROM 
+  `ovni.avistamientos`
+WHERE 
+  country = 'us'
+GROUP BY 
+  State
+ORDER BY 
+  Sightings DESC;
 ```
 
-If you could keep awake (but of course you can't) you would see your own mother doing this, and you would find it very interesting to watch her. It is quite like tidying up drawers. You would see her on her knees, I expect, lingering humorously over some of your contents, wondering where on earth you had picked this thing up, making discoveries sweet and not so sweet, pressing this to her cheek as if it were as nice as a kitten, and hurriedly stowing that out of sight. When you wake in the morning, the naughtiness and evil passions with which you went to bed have been folded up small and placed at the bottom of your mind and on the top, beautifully aired, are spread out your prettier thoughts, ready for you to put on.
+Las tablas generadas por este codigo SQL pueden ser vistas en el repositorio.
 
-I don't know whether you have ever seen a map of a person's mind. Doctors sometimes draw maps of other parts of you, and your own map can become intensely interesting, but catch them trying to draw a map of a child's mind, which is not only confused, but keeps going round all the time. There are zigzag lines on it, just like your temperature on a card, and these are probably roads in the island, for the Neverland is always more or less an island, with astonishing splashes of colour here and there, and coral reefs and rakish-looking craft in the offing, and savages and lonely lairs, and gnomes who are mostly tailors, and caves through which a river runs, and princes with six elder brothers, and a hut fast going to decay, and one very small old lady with a hooked nose. It would be an easy map if that were all, but there is also first day at school, religion, fathers, the round pond, needle-work, murders, hangings, verbs that take the dative, chocolate pudding day, getting into braces, say ninety-nine, three-pence for pulling out your tooth yourself, and so on, and either these are part of the island or they are another map showing through, and it is all rather confusing, especially as nothing will stand still.
+### Looker
 
-Of course the Neverlands vary a good deal. John's, for instance, had a lagoon with flamingoes flying over it at which John was shooting, while Michael, who was very small, had a flamingo with lagoons flying over it. John lived in a boat turned upside down on the sands, Michael in a wigwam, Wendy in a house of leaves deftly sewn together. John had no friends, Michael had friends at night, Wendy had a pet wolf forsaken by its parents, but on the whole the Neverlands have a family resemblance, and if they stood still in a row you could say of them that they have each other's nose, and so forth. On these magic shores children at play are for ever beaching their coracles [simple boat]. We too have been there; we can still hear the sound of the surf, though we shall land no more.
+Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Utilizando esta herramienta se crearon tres reportes con sus respectivas tablas y graficos
 
-Of all delectable islands the Neverland is the snuggest and most compact, not large and sprawly, you know, with tedious distances between one adventure and another, but nicely crammed. When you play at it by day with the chairs and table-cloth, it is not in the least alarming, but in the two minutes before you go to sleep it becomes very real. That is why there are night-lights.
+![](https://holocron.so/uploads/2bd6fece-image.png)
 
-Occasionally in her travels through her children's minds Mrs. Darling found things she could not understand, and of these quite the most perplexing was the word Peter. She knew of no Peter, and yet he was here and there in John and Michael's minds, while Wendy's began to be scrawled all over with him. The name stood out in bolder letters than any of the other words, and as Mrs. Darling gazed she felt that it had an oddly cocky appearance.
+![](https://holocron.so/uploads/f9cef7a8-image.png)
+
+![](https://holocron.so/uploads/6b3130d3-screenshot-2025-06-02-070030.png)
+
+Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
