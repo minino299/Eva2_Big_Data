@@ -9,4 +9,4 @@ Este repositorio esta organizado de la siguiente manera, se tiene en la raiz del
 - Archivos Evaluacion 2
 - Docs
 
-a
+En la carpeta `'Archivos Evaluacion 2'` se encuentran los archivos de evidencia de la evaluacion separados a su
