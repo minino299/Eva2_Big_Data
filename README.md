@@ -14,6 +14,6 @@ Este repositorio esta organizado de la siguiente manera, se tiene en la raiz del
 En la carpeta `'Archivos Evaluacion 2'` se encuentran los archivos de evidencia de la evaluacion separados a su vez en
 
 - **Tablas CSV consultas:** Las tablas exportadas desde Big Query con los Select realizados a la informacion, tambien se adjunta la tabla entera preparada con DataPrep
-- **Informes Looker**
+- **Informes Looker:** Los informes realizados con Looker, exportados a PDF
 
-a
+Ademas se adjuntan dos archivos, `'Eva2.Sql'` con la consultas del select de BigQuery y "Recipe DataP
