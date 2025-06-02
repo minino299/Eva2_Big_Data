@@ -16,4 +16,4 @@ En la carpeta `'Archivos Evaluacion 2'` se encuentran los archivos de evidencia 
 - **Tablas CSV consultas:** Las tablas exportadas desde Big Query con los Select realizados a la informacion, tambien se adjunta la tabla entera preparada con DataPrep
 - **Informes Looker:** Los informes realizados con Looker, exportados a PDF
 
-Ademas se adjuntan dos archivos, `'Eva2.Sql'` con la consultas del select de BigQuery y "Recipe DataP
+Ademas se adjuntan dos archivos, `'Eva2.Sql'` con la consultas del select de BigQuery y `'Recipe DataPrep.png'` una imagen con la receta utilizada en DataPrep para limpiar los datos
