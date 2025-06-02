@@ -77,4 +77,11 @@ ORDER BY
   Sightings DESC;
 ```
 
-Las tablas generadas por este codigo SQL pueden ser vistas en el repositorio
+Las tablas generadas por este codigo SQL pueden ser vistas en el repositorio.
+
+### Looker
+
+Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Utilizando esta herramienta se crearon tres reportes con sus respectivas tablas y graficos
+
+![](https://holocron.so/uploads/2bd6fece-image.png)
+
