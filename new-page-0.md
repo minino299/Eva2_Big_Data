@@ -1,5 +1,5 @@
 ---
-title: "Post: Standard"
+title: "Analisis estadistico de UFO's en America"
 excerpt_separator: "<!--more-->"
 categories:
   - Blog
@@ -85,3 +85,8 @@ Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visuali
 
 ![](https://holocron.so/uploads/2bd6fece-image.png)
 
+![](https://holocron.so/uploads/f9cef7a8-image.png)
+
+![](https://holocron.so/uploads/6b3130d3-screenshot-2025-06-02-070030.png)
+
+Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
