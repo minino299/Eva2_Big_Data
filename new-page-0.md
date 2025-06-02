@@ -29,7 +29,9 @@ Esta fase garantiza que el análisis posterior no se vea afectado por problemas 
 
 ### Big Query
 
-Una vez nuestros datos fueron procesados y limpiados por Dataprep, se v
+Una vez nuestros datos fueron procesados y limpiados por Dataprep, se cargan en el dataset antes creado `'ovni'` como la tabla `'avistamientos'` 
+
+![](https://holocron.so/uploads/06d44241-screenshot-2025-06-02-082620.png)
 
 Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
 
