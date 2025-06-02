@@ -17,3 +17,7 @@ En la carpeta `'Archivos Evaluacion 2'` se encuentran los archivos de evidencia 
 - **Informes Looker:** Los informes realizados con Looker, exportados a PDF
 
 Ademas se adjuntan dos archivos, `'Eva2.Sql'` con la consultas del select de BigQuery y `'Recipe DataPrep.png'` una imagen con la receta utilizada en DataPrep para limpiar los datos
+
+### Docs
+
+Esta carpeta presenta todos los documentos y scripts necesarios para correr la pagina de Github Pages del projecto
