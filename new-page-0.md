@@ -17,7 +17,9 @@ En primer lugar, los datos en formato CSV se cargan en un bucket de Cloud Storag
 
 ![](https://holocron.so/uploads/d8662850-screenshot-2025-06-02-081412.png)
 
-A continuacion, se crea un dataset en BigQuery llamado `'ovni'`, que sera nuestro dataset donde guardaremos nuestros datos procesados desde DataPrep. Sin embargo para esto primero debemos procesar nuestros datos con la herramienta. El rol de Dataprep es identificar y corregir inconsistencias, en este caso se utilizo la siguiente  . Esta fase garantiza que el análisis posterior no se vea afectado por problemas propios de datos recopilados durante casi un siglo y procedentes de múltiples fuentes.
+A continuacion, se crea un dataset en BigQuery llamado `'ovni'`, que sera nuestro dataset donde guardaremos nuestros datos procesados desde DataPrep. Sin embargo para esto primero debemos procesar nuestros datos con la herramienta. El rol de Dataprep es identificar y corregir inconsistencias, en este caso se utilizo la siguiente receta en DataPrep:
+
+ . Esta fase garantiza que el análisis posterior no se vea afectado por problemas propios de datos recopilados durante casi un siglo y procedentes de múltiples fuentes.
 
 Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
 
