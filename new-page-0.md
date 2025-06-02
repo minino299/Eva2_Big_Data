@@ -33,6 +33,8 @@ Una vez nuestros datos fueron procesados y limpiados por Dataprep, se cargan en 
 
 ![](https://holocron.so/uploads/06d44241-screenshot-2025-06-02-082620.png)
 
+Una vez en esta pantalla, se procede a realizar un `SELECT` en 
+
 Finalmente, Looker ofrece una capa de modelado semántico y un lienzo de visualización donde podemos explorar tendencias temporales, patrones geográficos y posibles correlaciones—por ejemplo, concentraciones de avistamientos en determinadas décadas o estados, o variaciones estacionales en la frecuencia de reportes. Gracias a estos tres componentes (BigQuery, Dataprep y Looker), este informe se centra en el valor analítico: descubrir comportamientos estadísticos, visualizar clusters y aportar herramientas concretas para que investigadores y analistas puedan profundizar en el fenómeno desde una perspectiva basada en datos.
 
 Mrs. Darling first heard of Peter when she was tidying up her children's minds. It is the nightly custom of every good mother after her children are asleep to rummage in their minds and put things straight for next morning, repacking into their proper places the many articles that have wandered during the day.
